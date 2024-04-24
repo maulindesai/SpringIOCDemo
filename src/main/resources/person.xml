@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation=" http://www.springframework.org/schema/beans
+         https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="money" class="model.Money" scope="prototype"/>
+
+    <bean id="expenses" class="model.Expenses" scope="prototype">
+        <constructor-arg name="money" ref="money"/>
+    </bean>
+
+    <bean id="person" class="model.Person" factory-method="createInstance" scope="prototype">
+        <constructor-arg name="name" value="abcd"/>
+        <constructor-arg name="email" value="abcd@nomail.com"/>
+        <constructor-arg >
+            <list value-type="model.Expenses"/>
+        </constructor-arg>
+    </bean>
+    
+</beans>

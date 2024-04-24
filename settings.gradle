@@ -1,0 +1,3 @@
+rootProject.name = 'SpringIOC'
+include 'basicIOCWithXML'
+
